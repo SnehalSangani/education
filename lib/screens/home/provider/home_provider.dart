@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 
 class Homeprovider extends ChangeNotifier
 {
-  WebViewController? webViewController;
+  InAppWebViewController? inAppWebViewController;
+  int index=0;
 
   List name=[
     "Wikipedia",
@@ -36,9 +38,11 @@ class Homeprovider extends ChangeNotifier
     "assets/images/W3Schools.png",
     "assets/images/Wikipedia.png",
   ];
-  void Url(int index)
+
+  void onchanged(int i)
   {
-    webViewController  = WebViewController();
-    webViewController!.loadRequest(Uri.parse("${url[index]}"));
+    index=i;
+    notifyListeners();
   }
+
 }

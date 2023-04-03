@@ -1,3 +1,5 @@
+
+
 import 'package:education/screens/home/provider/home_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,20 +33,21 @@ class _homeState extends State<home> {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
+                F!.onchanged(index);
                 Navigator.pushNamed(context, 'web');
-                F!.Url(index);
+
               },
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Container(
-                        height: 150,
-                        width: 150,
+                        height: 120,
+                        width: 120,
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey,width: 2),
                         ),
-                        child: Image.asset("${F!.images[index]}", fit: BoxFit.cover,),
+                        child: Image.asset("${F!.images[index]}", fit: BoxFit.cover,height: 85,width: 85,),
                       ),
                       SizedBox(
                         height: 10,
